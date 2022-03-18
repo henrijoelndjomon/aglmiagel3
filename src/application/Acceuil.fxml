@@ -33,7 +33,7 @@
             <Text layoutX="531.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHAP.CHAP by Groupe9" textAlignment="CENTER" wrappingWidth="162.00390625">
                <fill>
                   <LinearGradient cycleMethod="REFLECT" endX="0.8009478672985783" startY="1.0">
-                     <stops>  
+                     <stops>
                         <Stop>
                            <color>
                               <Color red="1.0" green="1.0" blue="1.0" />
