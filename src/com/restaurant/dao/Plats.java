@@ -1,32 +1,26 @@
 package com.restaurant.dao;
 
-import java.util.List;
-
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import com.groupe9.model.Livreurs;
 import com.groupe9.util.HibernateUtil;
 
-public class LivreursDao implements ILivreursDao {
-
-    // save Livreurs
-    // get All Livreurss
-    // get Livreurs By Id
-    // Update Livreurs
-    // Delete Livreurs
+public class Plats implements IPlats {
+	// save Plats
+    // get All Plats
+    // get Plats By Id
+    // Update Plats
+    // Delete Plats
 
     /* (non-Javadoc)
-     * @see net.javaguides.hibernate.dao.ILivreursDao#saveLivreurs(net.javaguides.hibernate.model.Livreurs)
+     * @see net.javaguides.hibernate.dao.IStudentDao#saveStudent(net.javaguides.hibernate.model.Student)
      */
     @Override
-    public void saveLivreurs(Livreurs livreurs) {
+    public void savePlats(Plats plats) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start the transaction
             transaction = session.beginTransaction();
 
-            // save livreurs object
-            session.save(livreurs);
+            // save student object
+            session.save(plats);
 
             // commit the transaction
             transaction.commit();
@@ -38,17 +32,17 @@ public class LivreursDao implements ILivreursDao {
     }
 
     /* (non-Javadoc)
-     * @see net.javaguides.hibernate.dao.ILivreursDao#updateLivreurs(net.javaguides.hibernate.model.Livreurs)
+     * @see net.javaguides.hibernate.dao.IStudentDao#updateStudent(net.javaguides.hibernate.model.Student)
      */
     @Override
-    public void updateLivreurs(Livreurs livreurs) {
+    public void updatePlats(Plats plats) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start the transaction
             transaction = session.beginTransaction();
 
-            // save livreurs object
-            session.saveOrUpdate(livreurs);
+            // save student object
+            session.saveOrUpdate(plats);
 
             // commit the transaction
             transaction.commit();
@@ -60,21 +54,21 @@ public class LivreursDao implements ILivreursDao {
     }
 
     /* (non-Javadoc)
-     * @see net.javaguides.hibernate.dao.ILivreursDao#getLivreursById(long)
+     * @see net.javaguides.hibernate.dao.IStudentDao#getStudentById(long)
      */
     @Override
-    public Livreurs getLivreursById(int id) {
+    public Plats getPlatsById(int id) {
         Transaction transaction = null;
-        Livreurs livreurs = null;
+        Plats plats = null;
         try {
 			Session session = HibernateUtil.getSessionFactory().openSession();
 			    // start the transaction
 			    transaction = session.beginTransaction();
 
-			    // get livreurs object
-			    livreurs= session.byId(Livreurs.class).getReference(id);
-			     // or livreurs = session.get(Livreurs.class, id);
-			    //or livreurs = session.load(Livreurs.class, id);
+			    // get student object
+			    plats= session.byId(Boissons.class).getReference(id);
+			     // or student = session.get(Student.class, id);
+			    //or student = session.load(Student.class, id);
 			   //or commit the transaction
 			    transaction.commit();
 		} catch (Exception e) {
@@ -85,24 +79,24 @@ public class LivreursDao implements ILivreursDao {
 		}
         
         
-        return livreurs;
+        return plats;
     }
 
     /* (non-Javadoc)
-     * @see net.javaguides.hibernate.dao.ILivreursDao#getAllLivreurss()
+     * @see net.javaguides.hibernate.dao.IStudentDao#getAllStudents()
      */
     @Override
     @SuppressWarnings("unchecked")
-    public List < Livreurs > getAllLivreurs() {
+    public List < Plats > getAllPlats() {
         Transaction transaction = null;
-        List < Livreurs > livreurss = null;
+        List < Plats > plats = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start the transaction
             transaction = session.beginTransaction();
 
-            // get livreurss
-            livreurss = session.createQuery("from Livreurs").list();
-            //livreurs = session.load(Livreurs.class, id);
+            // get students
+            plats = session.createQuery("from Plats").list();
+            //student = session.load(Student.class, id);
             // commit the transaction
             transaction.commit();
         } catch (Exception e) {
@@ -110,24 +104,24 @@ public class LivreursDao implements ILivreursDao {
                 transaction.rollback();
             }
         }
-        return livreurss;
+        return plats;
     }
 
     /* (non-Javadoc)
-     * @see net.javaguides.hibernate.dao.ILivreursDao#deleteLivreurs(long)
+     * @see net.javaguides.hibernate.dao.IStudentDao#deleteStudent(long)
      */
     @Override
-    public void deleteLivreurs(int id) {
+    public void deletePlats(int id) {
         Transaction transaction = null;
-        Livreurs livreurs = null;
+        ClientsExternes plats = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start the transaction
             transaction = session.beginTransaction();
 
-            livreurs = session.get(Livreurs.class, id);
-            // get livreurs object
-            session.delete(livreurs);
-            //livreurs = session.load(Livreurs.class, id);
+            plats = session.get(Plats.class, id);
+            // get student object
+            session.delete(plats);
+            //student = session.load(Student.class, id);
             // commit the transaction
             transaction.commit();
         } catch (Exception e) {
@@ -135,11 +129,6 @@ public class LivreursDao implements ILivreursDao {
                 transaction.rollback();
             }
         }
-    }
+    }	
 
-	@Override
-	public void Livreurs(com.groupe9.model.Livreurs livreur) {
-		// TODO Auto-generated method stub
-		
-	}
 }

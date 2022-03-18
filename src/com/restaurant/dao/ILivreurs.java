@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.groupe9.model.Livreurs;
 
-public interface ILivreursDao {
+public interface ILivreurs {
 
  void saveLivreurs(Livreurs livreur);
 
